@@ -99,21 +99,20 @@ wheels = [
 
 [[package]]
 name = "anthropic"
-version = "0.109.0"
+version = "1.12.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
-    { name = "distro" },
     { name = "docstring-parser" },
-    { name = "httpx" },
+    { name = "httpx2" },
     { name = "jiter" },
     { name = "pydantic" },
     { name = "sniffio" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8e/3b/96c84c2d70fb7e185d240fbd101c185f7f9b0f6fea39d0f86d22c628add5/anthropic-0.109.0.tar.gz", hash = "sha256:86719114c62f21b50bf7148a373371605f065d22e6eeee3d4d361ac0ea079d0e", size = 927503, upload-time = "2026-06-09T20:04:24.701Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bd/cc/0da23e94020c62c0077c17648252f32d575b187710faaf3b85145e8e555d/anthropic-1.12.1.tar.gz", hash = "sha256:10f720ab6ddf40ef12e0e5743412c3a6dfac1109c244e633c9a2dbd36778ad30", size = 1555908, upload-time = "2026-10-08T03:42:00.588Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fc/e9/267ea711185049714c4f3d1256b23e26f6968594651c155910584cc533bb/anthropic-0.109.0-py3-none-any.whl", hash = "sha256:b5d930af26fdeeb7c7e7a6ff6c4bcdaf46ee50403b26ada25d08fd853c751fff", size = 923835, upload-time = "2026-06-09T20:04:26.098Z" },
+    { url = "https://files.pythonhosted.org/packages/8b/35/1ccdc3e950dd869b66de15035e15d9614607fcef9664dec403fe639f01df/anthropic-1.12.1-py3-none-any.whl", hash = "sha256:1c1469bb3f4118291756816b7850cc839f17b2be5cdc99c8fde3890a61a49ca2", size = 1919752, upload-time = "2026-10-08T03:41:58.596Z" },
 ]
 
 [[package]]
@@ -435,20 +434,21 @@ wheels = [
 
 [[package]]
 name = "claude-agent-sdk"
-version = "0.1.72"
+version = "0.2.165"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
+    { name = "jsonschema" },
     { name = "mcp" },
     { name = "sniffio" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/5d/b7/ce35a79f4891797ef60b5cf437453bf22e3e420f5946007312c9e144f5e0/claude_agent_sdk-0.1.72.tar.gz", hash = "sha256:e737f919301d5fc65a3ebc6f438911b73e237b16fa9fa3061420e79727cfa307", size = 241286, upload-time = "2026-05-01T02:17:34.37Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7f/45/10f00a408b480926b5e340e3507562ede1e30d4ce5b73eea9ccc3468a9e6/claude_agent_sdk-0.2.165.tar.gz", hash = "sha256:1bfa8e7a6bb36e82de9a12324c9bcfa6eebd4f96ee5890f0c656d50445240ff8", size = 365169, upload-time = "2026-10-08T18:18:49.528Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e8/de/098dd15dec8ce3c5ed9c9c2415a290fb5c24ad9cd1214cfc3e20c3be0342/claude_agent_sdk-0.1.72-py3-none-macosx_11_0_arm64.whl", hash = "sha256:3a16ee041db0734e8f82d1fca7bd7c122227c0d8c150a301b365ab3f0a83a27b", size = 63695454, upload-time = "2026-05-01T02:17:38.468Z" },
-    { url = "https://files.pythonhosted.org/packages/55/de/bea82fdd65244bab9cf6aa3492c2b6cc5d97213836730febd89c0a342975/claude_agent_sdk-0.1.72-py3-none-macosx_11_0_x86_64.whl", hash = "sha256:4b3c630b5b07cd4f3d57631d833539b77045937093ec4975f47ee29de6b9a9df", size = 65539313, upload-time = "2026-05-01T02:17:43.129Z" },
-    { url = "https://files.pythonhosted.org/packages/1c/26/78e45a08c4acb262b8f99f6885fb5b96ccf32f27be008610403b86cc3da8/claude_agent_sdk-0.1.72-py3-none-manylinux_2_17_aarch64.whl", hash = "sha256:6fd7c6cbab95928ceb39fe82f413bd124e83dc5ed9bf63b6dffb9dc2b83f67bc", size = 76872182, upload-time = "2026-05-01T02:17:48.616Z" },
-    { url = "https://files.pythonhosted.org/packages/58/6d/9641f9a3119adec03d33cb40be8a194801cde0c15b3c497f07e36b38dab1/claude_agent_sdk-0.1.72-py3-none-manylinux_2_17_x86_64.whl", hash = "sha256:e2cf7beb573b608832cf2c644b330e51b79cfdab85286f064cf92f8f63c66382", size = 77032401, upload-time = "2026-05-01T02:17:54.322Z" },
-    { url = "https://files.pythonhosted.org/packages/88/a1/35eeda6bac78c5c236c0f3c36fb8634503514ff78ada4e46b77397922ed7/claude_agent_sdk-0.1.72-py3-none-win_amd64.whl", hash = "sha256:9159ac974b496bb50d05027f49b44b76a595f1b4df3bfdef1136b56c95fc956d", size = 78421027, upload-time = "2026-05-01T02:18:00.614Z" },
+    { url = "https://files.pythonhosted.org/packages/e4/a7/a7226ae5e7fa3f225d99a0acf12ee354c4af9c953661f66bbcd424e48853/claude_agent_sdk-0.2.165-py3-none-macosx_11_0_arm64.whl", hash = "sha256:7f7017bb59eaf77b9a7c7ce3b9ed2c8a397b8201c8630f011bb1b955290f06e4", size = 97973182, upload-time = "2026-10-08T18:18:56.039Z" },
+    { url = "https://files.pythonhosted.org/packages/5c/9d/1eaa82f8dbafa63a3fb26aabc088be307c4977438269cc6cb10056a32e99/claude_agent_sdk-0.2.165-py3-none-macosx_11_0_x86_64.whl", hash = "sha256:f4b5c6f536062e3af72357b1235f05ad4513230a32a3c639341a91a607d2df1e", size = 102479136, upload-time = "2026-10-08T18:19:01.908Z" },
+    { url = "https://files.pythonhosted.org/packages/40/4a/93fe172811bcd7704c4c4776d5eed1bb1881ba440d86e0f8e5cbbec0dca9/claude_agent_sdk-0.2.165-py3-none-manylinux_2_17_aarch64.whl", hash = "sha256:46a47e1e1075a8f2b7976f6bd5aa06c5610cb322c47cdc5b728fb25d02691164", size = 107447420, upload-time = "2026-10-08T18:19:09.571Z" },
+    { url = "https://files.pythonhosted.org/packages/57/81/a0d3ff04ae7045218566b36d1c78729c3fc7550877e154697f263ac5122e/claude_agent_sdk-0.2.165-py3-none-manylinux_2_17_x86_64.whl", hash = "sha256:9dbee4bfc69f0bb27ee455afdc19d78f958540a99217d2e28831fb9b7d496f08", size = 107800988, upload-time = "2026-10-08T18:19:16.24Z" },
+    { url = "https://files.pythonhosted.org/packages/7f/d8/1685e8fc14bae5b9cbcfd6f4f6ca8b7ae8fd497a8bbf9c108978dd98620b/claude_agent_sdk-0.2.165-py3-none-win_amd64.whl", hash = "sha256:cf41dc1b1019bc7321b695d621fc94e6d8982c095cfb7d433d5c293e356a2404", size = 110401968, upload-time = "2026-10-08T18:19:24.136Z" },
 ]
 
 [[package]]
@@ -658,15 +658,6 @@ wheels = [
 ]
 
 [[package]]
-name = "distro"
-version = "1.9.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz", hash = "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed", size = 60722, upload-time = "2023-12-24T09:54:32.31Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl", hash = "sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2", size = 20277, upload-time = "2023-12-24T09:54:30.421Z" },
-]
-
-[[package]]
 name = "dnspython"
 version = "2.8.0"
 source = { registry = "https://pypi.org/simple" }
@@ -833,6 +824,19 @@ wheels = [
 ]
 
 [[package]]
+name = "httpcore2"
+version = "2.13.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "h11" },
+    { name = "truststore" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/cb/f3/1db7aa2bc2524062192bb0e0323969492d1883152a232fe36eea65f4e35c/httpcore2-2.13.1.tar.gz", hash = "sha256:e0aa977abe17e69a3b820a24542a6fa88702676d83880b8d194dcd18408e5103", size = 68071, upload-time = "2026-09-23T07:47:22.372Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/09/ba/a4568248771ce81957bfb7cc600264a40fbcda092391ee1c415c50be4bea/httpcore2-2.13.1-py3-none-any.whl", hash = "sha256:e1e05d4f25f7d7d496bfb96748f6f4b67657b03da069b3a68c36069f3db73d0a", size = 83423, upload-time = "2026-09-23T07:47:19.365Z" },
+]
+
+[[package]]
 name = "httpx"
 version = "0.28.1"
 source = { registry = "https://pypi.org/simple" }
@@ -859,6 +863,32 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/0f/4c/751061ffa58615a32c31b2d82e8482be8dd4a89154f003147acee90f2be9/httpx_sse-0.4.3.tar.gz", hash = "sha256:9b1ed0127459a66014aec3c56bebd93da3c1bc8bb6618c8082039a44889a755d", size = 15943, upload-time = "2025-10-10T21:48:22.271Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d2/fd/6668e5aec43ab844de6fc74927e155a3b37bf40d7c3790e49fc0406b6578/httpx_sse-0.4.3-py3-none-any.whl", hash = "sha256:0ac1c9fe3c0afad2e0ebb25a934a59f4c7823b60792691f779fad2c5568830fc", size = 8960, upload-time = "2025-10-10T21:48:21.158Z" },
+]
+
+[[package]]
+name = "httpx2"
+version = "2.13.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio", marker = "sys_platform != 'emscripten'" },
+    { name = "httpcore2", marker = "sys_platform != 'emscripten'" },
+    { name = "httpx2-jsfetch", marker = "python_full_version >= '3.12' and sys_platform == 'emscripten'" },
+    { name = "idna" },
+    { name = "truststore", marker = "sys_platform != 'emscripten'" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d5/44/474bef2a0e9d90f1715d32cb98b0738695ca17ba324095fb2497ed7fbd59/httpx2-2.13.1.tar.gz", hash = "sha256:e48744a19e3af5ee48313d0ce5fe941d5422fae5705ea922a4aabf94d7800dfa", size = 100405, upload-time = "2026-09-23T07:47:23.052Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d8/9c/6fe8931fd9f381042a9e4c7d5a7b4cbf7016b252bec0c99a49fce42c3326/httpx2-2.13.1-py3-none-any.whl", hash = "sha256:6dff50fabc270ee5fd25d845d0b078ed20564579744d6d962850975996d2f9a4", size = 95597, upload-time = "2026-09-23T07:47:20.995Z" },
+]
+
+[[package]]
+name = "httpx2-jsfetch"
+version = "1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/cd/c4/0e5636363151a2a1795e0a77617168b9ca438e1748ec05fc9b5687f93d64/httpx2_jsfetch-1.0.tar.gz", hash = "sha256:70a0e3eabfef7cce5ad9c629f7d01ca05e418f586646f4ddf14782e4c1454c60", size = 6872, upload-time = "2026-08-07T00:13:07.492Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9b/43/832f631d32e4f1211caa2ba368317739fe71f0b8530e4c9d15dc454bac2a/httpx2_jsfetch-1.0-py3-none-any.whl", hash = "sha256:cb916b707601e69a07721aabc8f3f6659be3a6893bc1ff5c6f9e02241df2da32", size = 6382, upload-time = "2026-08-07T00:13:06.567Z" },
 ]
 
 [[package]]
@@ -893,11 +923,11 @@ wheels = [
 
 [[package]]
 name = "idna"
-version = "3.11"
+version = "3.20"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz", hash = "sha256:795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902", size = 194582, upload-time = "2025-10-12T14:55:20.501Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz", hash = "sha256:a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44", size = 216463, upload-time = "2026-09-17T14:11:04.752Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0e/61/66938bbb5fc52dbdf84594873d5b51fb1f7c7794e9c0f5bd885f30bc507b/idna-3.11-py3-none-any.whl", hash = "sha256:771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea", size = 71008, upload-time = "2025-10-12T14:55:18.883Z" },
+    { url = "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl", hash = "sha256:ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c", size = 69583, upload-time = "2026-09-17T14:11:03.168Z" },
 ]
 
 [[package]]
@@ -2809,6 +2839,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/eb/79/72064e6a701c2183016abbbfedaba506d81e30e232a68c9f0d6f6fcd1574/traitlets-5.14.3.tar.gz", hash = "sha256:9ed0579d3502c94b4b3732ac120375cda96f923114522847de4b3bb98b96b6b7", size = 161621, upload-time = "2024-04-19T11:11:49.746Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/00/c0/8f5d070730d7836adc9c9b6408dec68c6ced86b304a9b26a14df072a6e8c/traitlets-5.14.3-py3-none-any.whl", hash = "sha256:b74e89e397b1ed28cc831db7aea759ba6640cb3de13090ca145426688ff1ac4f", size = 85359, upload-time = "2024-04-19T11:11:46.763Z" },
+]
+
+[[package]]
+name = "truststore"
+version = "0.10.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/53/a3/1585216310e344e8102c22482f6060c7a6ea0322b63e026372e6dcefcfd6/truststore-0.10.4.tar.gz", hash = "sha256:9d91bd436463ad5e4ee4aba766628dd6cd7010cf3e2461756b3303710eebc301", size = 26169, upload-time = "2025-08-12T18:49:02.73Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/19/97/56608b2249fe206a67cd573bc93cd9896e1efb9e98bce9c163bcdc704b88/truststore-0.10.4-py3-none-any.whl", hash = "sha256:adaeaecf1cbb5f4de3b1959b42d41f6fab57b2b1666adb59e89cb0b53361d981", size = 18660, upload-time = "2025-08-12T18:49:01.46Z" },
 ]
 
 [[package]]
