@@ -11,9 +11,13 @@ uv sync --all-extras
 # Install pre-commit hooks
 uv run pre-commit install
 
-# Set up API key
-cp .env.example .env
-# Edit .env and add your ANTHROPIC_API_KEY
+# Set up the cookbook-only Qwen gateway (does not alter Claude Desktop/Code configuration)
+cp .cookbook.env.example .cookbook.env
+# Edit .cookbook.env and add your personal gateway key
+uv run --env-file .cookbook.env python -m jupyterlab
+
+# For Claude-only API examples, configure a separate Anthropic API key and use
+# the Anthropic endpoint instead.
 ```
 
 ## Development Commands

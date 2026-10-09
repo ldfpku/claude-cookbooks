@@ -42,11 +42,19 @@ Thank you for your interest in contributing to the Claude Cookbooks! This guide 
    # Or: pre-commit install
    ```
 
-5. **Set up your API key**:
+5. **Set up the cookbook gateway** (for Anthropic Messages API examples):
    ```bash
-   cp .env.example .env
-   # Edit .env and add your Claude API key
+   cp .cookbook.env.example .cookbook.env
+   # Edit .cookbook.env and add your personal Qwen gateway key
+   uv run --env-file .cookbook.env python -m jupyterlab
    ```
+
+   This passes gateway settings only to Jupyter and its kernels. It does not modify system/user
+   environment variables or Claude Desktop/Claude Code configuration. Keep `.cookbook.env` private.
+   Examples requiring Claude-only APIs or services need separate Anthropic API credentials and the
+   Anthropic endpoint; do not use the gateway key for those. Run them in a separate process without
+   the gateway environment (for example, `uv run --env-file .env python -m jupyterlab` using an existing
+   Anthropic `.env`; do not overwrite an existing `.env`).
 
 ## Quality Standards
 

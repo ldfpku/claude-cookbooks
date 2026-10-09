@@ -4,7 +4,60 @@ The Claude Cookbooks provide code and guides designed to help developers build w
 
 ## Prerequisites
 
-To make the most of the examples in this cookbook, you'll need a Claude API key (sign up for free [here](https://www.anthropic.com)).
+Most examples that use the Anthropic Messages API can run against the Anthropic-compatible
+[Qwen gateway](https://qwen.smjtools.com). Examples that depend on Claude-only APIs or services
+still require an Anthropic API key.
+
+### Use the Qwen gateway for cookbook examples
+
+The gateway serves the Qwen3.8-Flash-Next model and accepts Anthropic Messages API requests. Create
+a cookbook-specific environment file and enter your personal gateway key:
+
+```bash
+cp .cookbook.env.example .cookbook.env
+# Edit .cookbook.env and replace YOUR_QWEN_GATEWAY_KEY with your personal gateway key.
+```
+
+If `.cookbook.env` already exists, edit it without replacing it with the template.
+
+Start Jupyter with that file so its kernels inherit the gateway settings:
+
+```bash
+uv run --env-file .cookbook.env python -m jupyterlab
+```
+
+This runs JupyterLab as a Python module, avoiding Windows console-launcher errors such as
+`uv trampoline failed to canonicalize script path`.
+
+For a Python example, use the same project-scoped settings:
+
+```bash
+uv run --env-file .cookbook.env python path/to/example.py
+```
+
+These commands pass settings only to the launched process and its child processes; they do not
+change system or user environment variables or the configuration of Claude Desktop or Claude Code.
+Keep `.cookbook.env` private. The existing `.env` and `.env.example` remain separate and are not
+overwritten by this setup.
+
+The gateway documents `POST /v1/messages` compatibility, not full Claude API parity. Claude Agent
+SDK examples and examples requiring other Anthropic endpoints (such as Batch, Files, or Admin API)
+must use Anthropic API credentials and the Anthropic endpoint. Messages-level features beyond the
+documented compatibility should be checked against the gateway's current support. Long requests
+should use streaming, as the gateway may time out non-streaming requests that take too long;
+image requests require an available vision-enabled node.
+
+### Use the Anthropic API
+
+For examples that require Claude-only APIs or services, get an Anthropic API key from
+[Anthropic Console](https://console.anthropic.com/settings/keys) and configure it separately. Do
+not use your gateway key for those examples. The repository's `.env.example` remains the
+Anthropic-key template; if you need a local `.env`, create it only when one does not already exist.
+Run those examples in a separate process without the cookbook gateway environment, for example:
+
+```bash
+uv run --env-file .env python -m jupyterlab
+```
 
 While the code examples are primarily written in Python, the concepts can be adapted to any programming language that supports interaction with the Claude API.
 
