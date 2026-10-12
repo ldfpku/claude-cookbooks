@@ -31,9 +31,13 @@ Markdown 预览用于阅读；勾选时将源码中的 `[ ]` 改为 `[x]`。
 用 cookbook 专属配置启动：
 
 ```powershell
+uv sync --python 3.15 --all-extras --locked
 uv run --env-file .cookbook.env python -m jupyterlab
 ```
 
+- 本地项目已固定到 Python 3.15；依赖版本由 `uv.lock` 记录。
+- VoyageAI 包当前要求 Python <3.15，本环境跳过安装；相关示例需单独使用兼容环境。
+- Windows 下 `pywinpty` 源码构建可能遗漏 ConPTY 运行库；重建环境后按 README 检查。
 - 使用项目 `.venv` 对应的内核；先跑一个短文本请求。
 - 不改 Claude Desktop、Claude Code、用户或系统环境变量。
 - 不覆盖已有 `.env`；网关个人密钥只放在 `.cookbook.env`。
@@ -80,6 +84,7 @@ from importlib.metadata import version
 expected_python = Path(r"D:\tutorial\claude-cookbooks\.venv\Scripts\python.exe")
 actual_python = Path(sys.executable)
 print("当前 Python：", actual_python)
+print("Python 版本：", sys.version.split()[0])
 print("anthropic 版本：", version("anthropic"))
 print("ipykernel 版本：", version("ipykernel"))
 
@@ -90,14 +95,14 @@ print("项目内核检查通过")
 ```
 
 期望 Python 路径是 `D:\tutorial\claude-cookbooks\.venv\Scripts\python.exe`。
-本次环境核对得到 `anthropic 1.12.1`、`ipykernel 7.1.0`。
+本次环境核对得到 `Python 3.15.0`、`anthropic 1.13.0`、`ipykernel 7.4.0`。
 以后版本更新可能不同；路径一致才是本步骤的核心标准。
 
 如果路径不一致，在项目 PowerShell 中执行：
 
 ```powershell
 Set-Location D:\tutorial\claude-cookbooks
-uv run python -m ipykernel install --sys-prefix --name cookbook-venv --display-name "Python (cookbook .venv)"
+uv run python -m ipykernel install --sys-prefix --name cookbook-venv --display-name "Python 3.15 (cookbook .venv)"
 ```
 
 这个命令将内核定义安装到项目虚拟环境。
@@ -107,7 +112,7 @@ uv run python -m ipykernel install --sys-prefix --name cookbook-venv --display-n
 
 1. 刷新页面，保存当前 Notebook。
 2. 选择 `Kernel → Change Kernel…`。
-3. 选择 `Python (cookbook .venv)`。
+3. 选择 `Python 3.15 (cookbook .venv)`。
 4. 重新执行第一个单元格。
 
 若新内核未出现在列表中，重启 cookbook 的 Jupyter 服务。

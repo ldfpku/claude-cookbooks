@@ -20,6 +20,23 @@ cp .cookbook.env.example .cookbook.env
 
 If `.cookbook.env` already exists, edit it without replacing it with the template.
 
+For a local Python 3.15 environment, update dependencies and pin the interpreter:
+
+```powershell
+uv python pin 3.15
+uv sync --python 3.15 --all-extras --upgrade
+uv run python -m ipykernel install --sys-prefix --name cookbook-venv --display-name "Python 3.15 (cookbook .venv)"
+```
+
+The project retains Python 3.11 as its minimum; the local `.python-version` pin is not
+committed. VoyageAI currently declares Python `<3.15` and is installed only on those
+versions. Run VoyageAI examples in a separate compatible environment.
+On Windows, building `pywinpty` from source requires NuGet. Its source-built wheel may
+omit `conpty.dll` and `OpenConsole.exe`; verify `import winpty` before starting Jupyter
+and install the matching Microsoft-signed ConPTY runtime into the environment's
+`Lib\site-packages\winpty` directory if needed. Recreating the environment requires
+checking these native runtime files again.
+
 Start Jupyter with that file so its kernels inherit the gateway settings:
 
 ```bash
