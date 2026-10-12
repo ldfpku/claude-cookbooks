@@ -250,9 +250,9 @@ if not any(block.type == "text" and block.text.strip() for block in result.conte
 验收：至少测试正常、缺字段、格式错误三类输入；不能只凭肉眼判断。
 运行：网关候选；提示词 JSON 不等于服务端约束解码。
 
-- [ ] 阅读
-- [ ] 实践
-- [ ] 验收
+- [X] 阅读
+- [X] 实践
+- [X] 验收
 
 #### 03. 改进提示模板
 
@@ -262,9 +262,9 @@ if not any(block.type == "text" and block.text.strip() for block in result.conte
 验收：能指出改版解决的具体问题，而不是只说“更详细”。
 运行：网关候选。
 
-- [ ] 阅读
-- [ ] 实践
-- [ ] 验收
+- [X] 阅读
+- [X] 实践
+- [X] 验收
 
 #### 04. 使用明确的分类规则
 
