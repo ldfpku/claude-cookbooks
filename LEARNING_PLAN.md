@@ -513,8 +513,10 @@ if not any(block.type == "text" and block.text.strip() for block in result.conte
 | D | [提示缓存](./misc/prompt_caching.ipynb) → [上下文检索](./capabilities/contextual-embeddings/guide.ipynb) | 理解重复前缀与检索质量 | Claude 缓存语义及计费不能直接套用 |
 | E | [扩展思考](./extended_thinking/extended_thinking.ipynb) → [思考与工具](./extended_thinking/extended_thinking_with_tool_use.ipynb) | 理解思考预算和工具交互 | Qwen 的推理输出不等于 Claude 思考接口 |
 | F | [Agent SDK 入门](./claude_agent_sdk/00_The_one_liner_research_agent.ipynb) → [多代理](./claude_agent_sdk/01_The_chief_of_staff_agent.ipynb) → [可观测性](./claude_agent_sdk/02_The_observability_agent.ipynb) | SDK、子代理、hooks、MCP | 使用独立的正常 Claude 环境；不套用网关启动环境 |
-| G | [Managed Agents 入门](./managed_agents/CMA_iterate_fix_failing_tests.ipynb) → [生产设置](./managed_agents/CMA_operate_in_production.ipynb) | 服务端代理生命周期与部署 | Anthropic 专有服务，不是 Messages 网关替代品 |
+| G | [Managed Agents 入门](./managed_agents/CMA_iterate_fix_failing_tests.ipynb) → [生产设置](./managed_agents/CMA_operate_in_production.ipynb) → [大小模型编排](./managed_agents/CMA_plan_big_execute_small.ipynb) | 服务端代理生命周期、部署、多代理分工与成本权衡 | Anthropic 专有服务，不是 Messages 网关替代品；大小模型编排示例使用新的 `multiagent_20261001` 类型 |
 | H | [批处理](./misc/batch_processing.ipynb)、[Admin API](./misc/admin_api.ipynb)、[Skills](./skills/README.md) | 批量作业、管理与专有工具环境 | 需要对应 Anthropic 服务及权限 |
+| I | [代理会话安全审查](./managed_agents/CMA_agent_security_review.ipynb) | 从代理会话日志中识别越权访问、凭据使用、数据外传、绕过限制和提示注入，并用证据排序风险 | 使用示例日志练习；读取真实会话需相应权限，审查不能替代网络与权限控制 |
+| J | [OpenTelemetry 跟踪](./observability/opentelemetry_tracing.ipynb) | 关联 SDK、Claude API、Managed Agents 与应用自身的 spans，定位延迟和 token 消耗 | 需 Claude API、Managed Agents 和可用的观测后端；API spans 与部分属性处于 beta |
 
 - [ ] A：阅读、实践、验收完成
 - [ ] B：阅读、实践、验收完成
@@ -524,6 +526,8 @@ if not any(block.type == "text" and block.text.strip() for block in result.conte
 - [ ] F：阅读、实践、验收完成
 - [ ] G：阅读、实践、验收完成
 - [ ] H：阅读、实践、验收完成
+- [ ] I：阅读、实践、验收完成
+- [ ] J：阅读、实践、验收完成
 
 ## 5. 学习日志与阻塞记录
 

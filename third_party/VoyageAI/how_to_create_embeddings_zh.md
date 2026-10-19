@@ -12,7 +12,7 @@
 export VOYAGE_API_KEY="<your secret key>"
 ```
 
-你可以使用官方 [﷐0﷑ Python 包](https://github.com/voyage-ai/voyageai-python) 或 HTTP 请求获取嵌入向量，如下文所述。
+你可以使用官方 [`voyageai` Python 包](https://github.com/voyage-ai/voyageai-python) 或 HTTP 请求获取嵌入向量，如下文所述。
 
 ### Voyage Python 包
 

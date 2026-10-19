@@ -36,7 +36,7 @@ curl -N -X POST "$MODAL_URL/sessions/demo-1/messages" \
 
 > **说明：** `modal.Volume` 有显式的提交语义。如果你的工作负载有多个
 > 沙箱并发写入大量会话并出现写入丢失，
-> 请改用由 Modal `Dict` 或外部存储支撑的 [﷐1﷑](https://code.claude.com/docs/en/agent-sdk/session-storage)
+> 请改用由 Modal `Dict` 或外部存储支撑的 [`SessionStore`](https://code.claude.com/docs/en/agent-sdk/session-storage)
 > —— 第 3 层也使用这种方式。
 
 ## 存活检测

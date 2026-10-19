@@ -1,8 +1,8 @@
 # 托管研究智能体
 
-该目录通过三个层级部署来自 [﷐0﷑](../00_The_one_liner_research_agent.ipynb) 的研究智能体：本地 Docker、Modal 和 Kubernetes。智能体、容器镜像和 HTTP 接口在三个层级中 **相同**——只有容器周围的运行机制发生变化。
+该目录通过三个层级部署来自 [`00_The_one_liner_research_agent.ipynb`](../00_The_one_liner_research_agent.ipynb) 的研究智能体：本地 Docker、Modal 和 Kubernetes。智能体、容器镜像和 HTTP 接口在三个层级中 **相同**——只有容器周围的运行机制发生变化。
 
-请阅读 [﷐0﷑](../07_Hosting_the_agent.ipynb) 了解完整叙述。
+请阅读 [`07_Hosting_the_agent.ipynb`](../07_Hosting_the_agent.ipynb) 了解完整叙述。
 
 ## 接口约定
 

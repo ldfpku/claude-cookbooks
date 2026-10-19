@@ -4,7 +4,7 @@
 
 宿主机直接运行 `ant beta:worker poll`；对每个领取到的工作项，它的 `--on-work` 脚本（`on-work.sh`）用 `docker run` 启动一个按会话划分的容器，该容器的入口命令是 `ant beta:worker run`。每个容器都有一个 `/workspace`（智能体的工作树；技能下载到此处），并由按会话划分的 Docker 卷支撑，因此工作树和技能在同一个会话的多个容器之间得以保留。
 
-它就是运行在你自己掌控的宿主机上的普通 Docker，使用与 [﷐0﷑ 快速上手示例](https://github.com/anthropics/claude-quickstarts/tree/main/managed-agents/self-hosted-sandboxes/docker) 相同的 CLI 和相同的环境变量约定。
+它就是运行在你自己掌控的宿主机上的普通 Docker，使用与 [`docker/` 快速上手示例](https://github.com/anthropics/claude-quickstarts/tree/main/managed-agents/self-hosted-sandboxes/docker) 相同的 CLI 和相同的环境变量约定。
 
 - **`Dockerfile`** —— 按会话使用的镜像：固定版本的 `ant` CLI、`WORKDIR
   /workspace`、`ENTRYPOINT ["ant"，"beta:worker"，"run"，…]`。CLI 负责心跳、待办工作对齐、SSE、`bash`/`read`/`write`/`edit`/`glob`/`grep` 工具集，以及退出时对工作项的强制停止。

@@ -24,7 +24,7 @@
 - 提供方
     - 通过 Promptfoo 可以连接来自不同平台的多种 LLM，详见[这里](https://www.promptfoo.dev/docs/providers)。在 `guide.ipynb` 中我们使用 Haiku，温度默认 0.0。我们将用 Promptfoo 试验一组不同的温度设置，以找出适合我们场景的最优选择。
 - 测试
-    - 我们使用 `guide.ipynb` 中相同的数据，见 [﷐1﷑](./dataset.csv)。
+    - 我们使用 `guide.ipynb` 中相同的数据，见 [`dataset.csv`](./dataset.csv)。
     - Promptfoo 内置了丰富的测试，见[这里](https://www.promptfoo.dev/docs/configuration/expected-outputs/deterministic)。
     - 本示例在 `dataset.csv` 中定义测试，因为评估条件随每一行变化；并在 `promptfooconfig.yaml` 中定义测试，用于所有测试用例中保持一致的条件。更多信息见[这里](https://www.promptfoo.dev/docs/configuration/parameters/#import-from-csv)
 - 转换

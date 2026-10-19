@@ -14,6 +14,6 @@
 - 承载令牌变量是 `MANAGED_AGENTS_MCP_TOKEN`，不再是 `CMA_MCP_TOKEN`。它必须至少 32 个字符，否则 HTTP 服务器拒绝启动。
 - HTTP 服务器默认绑定 `127.0.0.1`。旧版本监听所有网络接口。要从其他地址提供服务，请设置 `HOST`，并在 `ALLOWED_HOSTS` 中列出公开主机名。带有其他 `Host` 请求头的请求会被拒绝。
 - `ALLOWED_AGENT_IDS` 是新引入的。未设置时，令牌可以访问工作区中的每个智能体，与之前相同。将其设置为逗号分隔的列表，即可把服务器限制在这些智能体内。
-- 环境在 `environment.yaml` 中定义，并使用 [﷐1﷑ CLI](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart) 创建。内联的 `--config` 命令已取消。
+- 环境在 `environment.yaml` 中定义，并使用 [`ant` CLI](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart) 创建。内联的 `--config` 命令已取消。
 
-曾位于此处的代码的最后一个版本在 [﷐0﷑](https://github.com/anthropics/claude-cookbooks/tree/6b671ef60ada2a8d3b0c07cadb424172da5135f5/managed_agents/cma-mcp)。
+曾位于此处的代码的最后一个版本在 [`6b671ef`](https://github.com/anthropics/claude-cookbooks/tree/6b671ef60ada2a8d3b0c07cadb424172da5135f5/managed_agents/cma-mcp)。

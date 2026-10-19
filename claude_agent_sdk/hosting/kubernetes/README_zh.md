@@ -27,7 +27,7 @@
                      └──────────────────────────────────────────────────┘
 ```
 
-智能体镜像与层级 1 从 [﷐0﷑](../Dockerfile) 构建的**完全相同**。镜像相同，机制不同：不再是单个容器或 Modal 沙箱，而是由网关为每个会话分配一个专属 pod，并由集群强制限制该 pod 能够访问的范围。
+智能体镜像与层级 1 从 [`hosting/Dockerfile`](../Dockerfile) 构建的**完全相同**。镜像相同，机制不同：不再是单个容器或 Modal 沙箱，而是由网关为每个会话分配一个专属 pod，并由集群强制限制该 pod 能够访问的范围。
 
 > **自建托管之前：**如果你只想要一个托管的智能体而不想自己运维
 > 基础设施，请使用 Anthropic 的托管方案——参见
@@ -84,7 +84,7 @@ curl -N -X POST http://localhost:8080/sessions/demo/messages \
 
 在新 `session_id` 上的第一个请求会认领一个待机 pod（池为空则生成一个）。使用相同 `session_id` 的后续请求会路由到同一个 pod，因此智能体看到的是一段连续的对话。
 
-该会话现在归属于 `alice` — 网关在 Redis 中记录创建会话的租户，并在每个后续请求上校验。用 `$BOB_TOKEN` 发起相同调用会返回 `403 {"detail":"session belongs to another tenant"}`，完全不带令牌则返回 `401`。租户映射是 `gateway-tenants` secret 中一个静态的 `token:tenant,token:tenant` 字符串；把 [﷐6﷑](./gateway/main.py) 中的 `authenticate()` 桩函数替换为你的 IdP，从真实凭据推导租户。
+该会话现在归属于 `alice` — 网关在 Redis 中记录创建会话的租户，并在每个后续请求上校验。用 `$BOB_TOKEN` 发起相同调用会返回 `403 {"detail":"session belongs to another tenant"}`，完全不带令牌则返回 `401`。租户映射是 `gateway-tenants` secret 中一个静态的 `token:tenant,token:tenant` 字符串；把 [`gateway/main.py`](./gateway/main.py) 中的 `authenticate()` 桩函数替换为你的 IdP，从真实凭据推导租户。
 
 观察这套机制运转：
 
@@ -143,7 +143,7 @@ curl http://localhost:8080/api/pool -H "Authorization: Bearer $ALICE_TOKEN"
 
 1. **挂载一个 PersistentVolumeClaim** 到 `/data`，替代 pod 的本地
    磁盘，并让网关在会话返回时重新挂接同一个 PVC。`server.py` 无需改动即可工作，但会把每个会话耦合到某个可用区中的一个卷。
-2. **用 SDK 的 [﷐0﷑](https://code.claude.com/docs/en/agent-sdk/session-storage)
+2. **用 SDK 的 [`SessionStore`](https://code.claude.com/docs/en/agent-sdk/session-storage)
    把 `/data` 镜像到外部存储**：本地磁盘写入仍然先发生；该存储是一份镜像，且 `mirror_error` 不致命。这正是笔记本中 *Making it production-ready* 一节描述的方案——它需要在 `server.py` 中加一个小钩子，cookbook 还没有写这个。
 
 ## 部署到你自己的集群
@@ -202,11 +202,11 @@ done
 - 持久的会话存储（见 [持久化](#persistence)）
 - 网关自动扩缩或多区域路由
 - DNS 层面的出口控制 — 53 端口对任意解析器保持开放，以便节点本地
-  DNS 缓存继续工作，这使 DNS 隧道成为一个残余的数据外泄通道。[﷐0﷑](./manifests/network-policy.yaml) 中的说明展示了在集群直接与 kube-dns/CoreDNS 通信时如何收紧它。
+  DNS 缓存继续工作，这使 DNS 隧道成为一个残余的数据外泄通道。[`manifests/network-policy.yaml`](./manifests/network-policy.yaml) 中的说明展示了在集群直接与 kube-dns/CoreDNS 通信时如何收紧它。
 - 加固过的支撑服务 — 网关、Redis 和 nginx 以其
   官方镜像的默认（root）用户运行。加固的投入放在了智能体 pod 上，因为只有它们在运行模型驱动的代码；在生产之前，其余部分请按你组织的基线加固。
 - 超出
-  [﷐0﷑](https://code.claude.com/docs/en/agent-sdk/observability) 免费提供的可观测性
+  [`OTEL_EXPORTER_OTLP_ENDPOINT`](https://code.claude.com/docs/en/agent-sdk/observability) 免费提供的可观测性
 
 ## 拆除
 

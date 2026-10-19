@@ -68,7 +68,7 @@ uv 环境为每个笔记本提供统一内核。首个单元格自行安装依�
 - 用 `ClaudeSDKClient` 管理对话上下文
 - 用于智能体专业化的系统提示词
 
-**配套代码：** [﷐0﷑](research_agent/)
+**配套代码：** [`research_agent/`](research_agent/)
 
 ### [01：幕僚长智能体](01_The_chief_of_staff_agent.ipynb)
 
@@ -83,7 +83,7 @@ uv 环境为每个笔记本提供统一内核。首个单元格自行安装依�
 - **子智能体编排：** 协调专业化智能体以提供领域专长
 - **Bash 工具集成：** 执行 Python 脚本以获得过程性知识和完成复杂计算
 
-**配套代码：** [﷐0﷑](chief_of_staff_agent/)
+**配套代码：** [`chief_of_staff_agent/`](chief_of_staff_agent/)
 
 ### [02：可观测性智能体](02_The_observability_agent.ipynb)
 
@@ -96,7 +96,7 @@ uv 环境为每个笔记本提供统一内核。首个单元格自行安装依�
 - **智能事件响应：** 自动化的根因分析
 - **生产工作流自动化：** 从监控到可执行的洞察
 
-**配套代码：** [﷐0﷑](observability_agent/)
+**配套代码：** [`observability_agent/`](observability_agent/)
 
 ### [03：站点可靠性智能体](03_The_site_reliability_agent.ipynb)
 
@@ -110,7 +110,7 @@ uv 环境为每个笔记本提供统一内核。首个单元格自行安装依�
 - **端到端事件生命周期：** 从检测到修复再到事后复盘文档
 - **生产扩展：** 通过条件式 MCP 工具注册，可选集成 PagerDuty 与 Confluence
 
-**配套代码：** [﷐0﷑](site_reliability_agent/)
+**配套代码：** [`site_reliability_agent/`](site_reliability_agent/)
 
 ### [04：从 OpenAI Agents SDK 迁移](04_migrating_from_openai_agents_sdk.ipynb)
 
@@ -132,7 +132,7 @@ uv 环境为每个笔记本提供统一内核。首个单元格自行安装依�
 - **组织历史：** 重命名、打标签并筛选会话
 - **分叉：** 在任意位置为会话建立分支，并把分叉作为一次实时 `query()` 调用继续运行
 
-**配套代码：** [﷐0﷑](session_browser_demo/)
+**配套代码：** [`session_browser_demo/`](session_browser_demo/)
 
 ### [06：漏洞检测智能体](06_The_vulnerability_detection_agent.ipynb)
 
@@ -143,7 +143,7 @@ uv 环境为每个笔记本提供统一内核。首个单元格自行安装依�
 - **智能体式发现循环：** 使用内置的 `Read`/`Grep`/`Glob` 工具，而不是自行实现文件访问
 - **串联阶段：** 分别执行发现、分诊与报告的 `query()` 调用，输出符合模式的 JSON
 
-**配套代码：** [﷐0﷑](vulnerability_detection_agent/)
+**配套代码：** [`vulnerability_detection_agent/`](vulnerability_detection_agent/)
 
 ### [07：托管你的智能体](07_Hosting_the_agent.ipynb)
 
@@ -155,7 +155,7 @@ uv 环境为每个笔记本提供统一内核。首个单元格自行安装依�
 - **Kubernetes：** 在你自己的集群中进行多租户部署
 - **可移植接口：** 三个层级使用完全相同的智能体代码、镜像和 HTTP 接口
 
-**配套代码：** [﷐0﷑](hosting/)
+**配套代码：** [`hosting/`](hosting/)
 
 ### [08：用动态工作流大规模编排子智能体](08_Dynamic_workflows.ipynb)
 
@@ -173,7 +173,7 @@ uv 环境为每个笔记本提供统一内核。首个单元格自行安装依�
 
 ### [构建定时仓库评审器](scheduled_repository_reviewer/scheduled_repository_reviewer.ipynb)
 
-把重复性的评审苦活变成由你掌控的无人值守任务。构建一个只读评审智能体，按计划评审仓库，并在各次运行之间恢复其会话，使一次完整的基线评审之后跟着简短的跟进评审；并通过符合模式校验的字段（回显上次评审的 id 与发现项）证明这种连续性。笔记本手动运行前两个周期，最后用配套脚本 [﷐0﷑](scheduled_repository_reviewer/scheduled_review.py) 把评审器设为定时任务。
+把重复性的评审苦活变成由你掌控的无人值守任务。构建一个只读评审智能体，按计划评审仓库，并在各次运行之间恢复其会话，使一次完整的基线评审之后跟着简短的跟进评审；并通过符合模式校验的字段（回显上次评审的 id 与发现项）证明这种连续性。笔记本手动运行前两个周期，最后用配套脚本 [`scheduled_review.py`](scheduled_repository_reviewer/scheduled_review.py) 把评审器设为定时任务。
 
 **核心概念：**
 - **只读智能体：** `tools` 决定存在哪些内置工具，`allowed_tools` 决定哪些工具无需询问即可运行；把两者都限制为 `Read`、`Glob` 和 `Grep`，智能体就没有任何写工具
