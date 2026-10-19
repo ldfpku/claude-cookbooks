@@ -31,9 +31,13 @@ Markdown 预览用于阅读；勾选时将源码中的 `[ ]` 改为 `[x]`。
 用 cookbook 专属配置启动：
 
 ```powershell
+uv sync --python 3.15 --all-extras --locked
 uv run --env-file .cookbook.env python -m jupyterlab
 ```
 
+- 本地项目已固定到 Python 3.15；依赖版本由 `uv.lock` 记录。
+- VoyageAI 包当前要求 Python <3.15，本环境跳过安装；相关示例需单独使用兼容环境。
+- Windows 下 `pywinpty` 源码构建可能遗漏 ConPTY 运行库；重建环境后按 README 检查。
 - 使用项目 `.venv` 对应的内核；先跑一个短文本请求。
 - 不改 Claude Desktop、Claude Code、用户或系统环境变量。
 - 不覆盖已有 `.env`；网关个人密钥只放在 `.cookbook.env`。
@@ -80,6 +84,7 @@ from importlib.metadata import version
 expected_python = Path(r"D:\tutorial\claude-cookbooks\.venv\Scripts\python.exe")
 actual_python = Path(sys.executable)
 print("当前 Python：", actual_python)
+print("Python 版本：", sys.version.split()[0])
 print("anthropic 版本：", version("anthropic"))
 print("ipykernel 版本：", version("ipykernel"))
 
@@ -90,14 +95,14 @@ print("项目内核检查通过")
 ```
 
 期望 Python 路径是 `D:\tutorial\claude-cookbooks\.venv\Scripts\python.exe`。
-本次环境核对得到 `anthropic 1.12.1`、`ipykernel 7.1.0`。
+本次环境核对得到 `Python 3.15.0`、`anthropic 1.13.0`、`ipykernel 7.4.0`。
 以后版本更新可能不同；路径一致才是本步骤的核心标准。
 
 如果路径不一致，在项目 PowerShell 中执行：
 
 ```powershell
 Set-Location D:\tutorial\claude-cookbooks
-uv run python -m ipykernel install --sys-prefix --name cookbook-venv --display-name "Python (cookbook .venv)"
+uv run python -m ipykernel install --sys-prefix --name cookbook-venv --display-name "Python 3.15 (cookbook .venv)"
 ```
 
 这个命令将内核定义安装到项目虚拟环境。
@@ -107,7 +112,7 @@ uv run python -m ipykernel install --sys-prefix --name cookbook-venv --display-n
 
 1. 刷新页面，保存当前 Notebook。
 2. 选择 `Kernel → Change Kernel…`。
-3. 选择 `Python (cookbook .venv)`。
+3. 选择 `Python 3.15 (cookbook .venv)`。
 4. 重新执行第一个单元格。
 
 若新内核未出现在列表中，重启 cookbook 的 Jupyter 服务。
@@ -508,8 +513,10 @@ if not any(block.type == "text" and block.text.strip() for block in result.conte
 | D | [提示缓存](./misc/prompt_caching.ipynb) → [上下文检索](./capabilities/contextual-embeddings/guide.ipynb) | 理解重复前缀与检索质量 | Claude 缓存语义及计费不能直接套用 |
 | E | [扩展思考](./extended_thinking/extended_thinking.ipynb) → [思考与工具](./extended_thinking/extended_thinking_with_tool_use.ipynb) | 理解思考预算和工具交互 | Qwen 的推理输出不等于 Claude 思考接口 |
 | F | [Agent SDK 入门](./claude_agent_sdk/00_The_one_liner_research_agent.ipynb) → [多代理](./claude_agent_sdk/01_The_chief_of_staff_agent.ipynb) → [可观测性](./claude_agent_sdk/02_The_observability_agent.ipynb) | SDK、子代理、hooks、MCP | 使用独立的正常 Claude 环境；不套用网关启动环境 |
-| G | [Managed Agents 入门](./managed_agents/CMA_iterate_fix_failing_tests.ipynb) → [生产设置](./managed_agents/CMA_operate_in_production.ipynb) | 服务端代理生命周期与部署 | Anthropic 专有服务，不是 Messages 网关替代品 |
+| G | [Managed Agents 入门](./managed_agents/CMA_iterate_fix_failing_tests.ipynb) → [生产设置](./managed_agents/CMA_operate_in_production.ipynb) → [大小模型编排](./managed_agents/CMA_plan_big_execute_small.ipynb) | 服务端代理生命周期、部署、多代理分工与成本权衡 | Anthropic 专有服务，不是 Messages 网关替代品；大小模型编排示例使用新的 `multiagent_20261001` 类型 |
 | H | [批处理](./misc/batch_processing.ipynb)、[Admin API](./misc/admin_api.ipynb)、[Skills](./skills/README.md) | 批量作业、管理与专有工具环境 | 需要对应 Anthropic 服务及权限 |
+| I | [代理会话安全审查](./managed_agents/CMA_agent_security_review.ipynb) | 从代理会话日志中识别越权访问、凭据使用、数据外传、绕过限制和提示注入，并用证据排序风险 | 使用示例日志练习；读取真实会话需相应权限，审查不能替代网络与权限控制 |
+| J | [OpenTelemetry 跟踪](./observability/opentelemetry_tracing.ipynb) | 关联 SDK、Claude API、Managed Agents 与应用自身的 spans，定位延迟和 token 消耗 | 需 Claude API、Managed Agents 和可用的观测后端；API spans 与部分属性处于 beta |
 
 - [ ] A：阅读、实践、验收完成
 - [ ] B：阅读、实践、验收完成
@@ -519,6 +526,8 @@ if not any(block.type == "text" and block.text.strip() for block in result.conte
 - [ ] F：阅读、实践、验收完成
 - [ ] G：阅读、实践、验收完成
 - [ ] H：阅读、实践、验收完成
+- [ ] I：阅读、实践、验收完成
+- [ ] J：阅读、实践、验收完成
 
 ## 5. 学习日志与阻塞记录
 
